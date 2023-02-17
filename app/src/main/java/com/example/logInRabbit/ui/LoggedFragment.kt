@@ -29,7 +29,7 @@ class LoggedFragmentFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
 
        val user: UsersItem = requireArguments().getParcelable("user")!!
-        binding.welcome.text = "Welcome back, ${user.name}"
+        binding.welcome.text = "Welcome back sr, ${user.name}"
         binding.userId.text = "Id: ${user.id}"
         binding.phone.text = "Phone: ${user.phone}"
         binding.email.text = "Email: ${user.email}"

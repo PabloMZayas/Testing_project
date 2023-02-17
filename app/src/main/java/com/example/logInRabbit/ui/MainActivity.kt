@@ -1,7 +1,8 @@
-package com.example.logInRabbit
+package com.example.logInRabbit.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.logInRabbit.R
 import com.example.logInRabbit.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

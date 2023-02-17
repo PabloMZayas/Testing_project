@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CCAF82"
-    tools:context=".ApiFragment">
+    android:background="#EDEFEF"
+    tools:context=".ui.ApiFragment">
 
     <ImageView
         android:id="@+id/symbol_sugar"
@@ -36,8 +36,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="25dp"
-        app:endIconMode="custom"
         app:endIconDrawable="@drawable/z_ic_msg_gray"
+        app:endIconMode="custom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -47,9 +47,9 @@
 
         <EditText
             android:id="@+id/userName"
-            android:background="@drawable/bg_edittext"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/bg_edittext"
             android:hint="Usuario"
             android:maxLines="1"
             android:textAlignment="center" />
@@ -68,12 +68,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         <EditText
-            android:inputType="textPassword"
             android:id="@+id/userPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/bg_edittext"
             android:hint="Contraseña"
+            android:inputType="textPassword"
             android:textAlignment="center" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -89,5 +89,17 @@
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+
+    <TextView
+        android:id="@+id/tv_have_you_registered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿No te has registrado?"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogIn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

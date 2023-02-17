@@ -1,5 +1,6 @@
-package com.example.logInRabbit
+package com.example.logInRabbit.ui
 
+import android.graphics.Paint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,8 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.example.logInRabbit.R
+import com.example.logInRabbit.UsersApi
 import com.example.logInRabbit.databinding.FragmentApiBinding
 import com.example.logInRabbit.jsons.UsersItem
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,6 +37,8 @@ class ApiFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.tvHaveYouRegistered.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        binding.tvHaveYouRegistered.setOnClickListener { findNavController().navigate(R.id.action_snakeMainFragment_to_signInFragment) }
         binding.btnLogIn.setOnClickListener { getRetrofit() }
     }
 
@@ -40,6 +48,16 @@ class ApiFragment : Fragment(){
             .baseUrl("https://jsonplaceholder.typicode.com/")
             .build()
             .create(UsersApi::class.java)
+
+        val retrofitBuilder2 = Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl("https://jsonplaceholder.typicode.com/")
+                .build()
+
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = retrofitBuilder2.create(UsersApi::class.java).getUsers2("posts")
+            val body = response.body()
+        }
 
         val retrofitData = retrofitBuilder.getUsers()
         var myResponse = mutableListOf<UsersItem>()
@@ -75,7 +93,7 @@ class ApiFragment : Fragment(){
             }
         }
         if(aux == 0){
-            Toast.makeText(requireContext(), "wrong password", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Wrong password", Toast.LENGTH_SHORT).show()
         }
     }
 

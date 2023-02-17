@@ -7,15 +7,27 @@
 
     <fragment
         android:id="@+id/snakeMainFragment"
-        android:name="com.example.logInRabbit.ApiFragment"
+        android:name="com.example.logInRabbit.ui.ApiFragment"
         android:label="fragment_snake_main"
         tools:layout="@layout/fragment_api" >
         <action
             android:id="@+id/action_snakeMainFragment_to_loggedFragmentFragment"
             app:destination="@id/loggedFragmentFragment" />
+        <action
+            android:id="@+id/action_snakeMainFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
     </fragment>
     <fragment
         android:id="@+id/loggedFragmentFragment"
         android:name="com.example.logInRabbit.LoggedFragmentFragment"
         android:label="LoggedFragmentFragment" />
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.logInRabbit.ui.SignNameFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_name" >
+        <action
+            android:id="@+id/action_signInFragment_to_snakeMainFragment"
+            app:destination="@id/snakeMainFragment" />
+    </fragment>
 </navigation>
