@@ -29,5 +29,19 @@
         <action
             android:id="@+id/action_signInFragment_to_snakeMainFragment"
             app:destination="@id/snakeMainFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_signBirthdayFragment"
+            app:destination="@id/signBirthdayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signBirthdayFragment"
+        android:name="com.example.logInRabbit.ui.SignBirthdayFragment"
+        android:label="SignBirthdayFragment" >
+        <action
+            android:id="@+id/action_signBirthdayFragment_to_signInFragment2"
+            app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_signBirthdayFragment_to_snakeMainFragment"
+            app:destination="@id/snakeMainFragment" />
     </fragment>
 </navigation>

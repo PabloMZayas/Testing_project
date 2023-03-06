@@ -49,8 +49,7 @@ class SignNameFragment : Fragment(){
             }
 
             val bundle = Bundle()
-
-            Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_signInFragment_to_signBirthdayFragment)
         }
     }
 

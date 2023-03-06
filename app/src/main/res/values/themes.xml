@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.SnakeOne" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.SnakeOne" parent="Theme.Material3.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -12,5 +12,18 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="MySpinnerDatePickerStyle" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="android:datePickerStyle">@style/MySpinnerDatePicker</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:colorForeground">@android:color/secondary_text_light</item>
+        <!--<item name="android:windowBackground">@drawable/z_sh_card_rect_white_all</item>-->
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:windowMinWidthMinor">85%</item>
+    </style>
+
+    <style name="MySpinnerDatePicker" parent="android:Widget.DatePicker">
+        <item name="android:datePickerMode">spinner</item>
     </style>
 </resources>
