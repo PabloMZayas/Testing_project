@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EDEFEF"
-    tools:context=".ui.ApiFragment">
+    tools:context=".ui.login.ApiFragment">
 
     <ImageView
         android:id="@+id/symbol_sugar"

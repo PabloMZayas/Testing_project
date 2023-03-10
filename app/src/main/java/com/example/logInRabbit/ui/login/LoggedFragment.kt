@@ -1,4 +1,4 @@
-package com.example.logInRabbit
+package com.example.logInRabbit.ui.login
 
 import android.annotation.SuppressLint
 import android.os.Bundle

@@ -41,7 +41,7 @@ class SignBirthdayFragment : Fragment(){
         binding.tvDoYouAlreadyHaveAnAccount.paintFlags = Paint.UNDERLINE_TEXT_FLAG
         binding.ibBack.setOnClickListener { findNavController().navigate(R.id.action_signBirthdayFragment_to_signInFragment2) }
         binding.tvDoYouAlreadyHaveAnAccount.setOnClickListener { findNavController().navigate(R.id.action_signBirthdayFragment_to_snakeMainFragment) }
-
+        binding.btnNext.setOnClickListener { findNavController().navigate(R.id.action_signBirthdayFragment_to_credentialsFragment) }
     }
 
     private fun initDatePicker() {

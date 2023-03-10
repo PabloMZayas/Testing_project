@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/snakeMainFragment"
-        android:name="com.example.logInRabbit.ui.ApiFragment"
+        android:name="com.example.logInRabbit.ui.login.ApiFragment"
         android:label="fragment_snake_main"
         tools:layout="@layout/fragment_api" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/loggedFragmentFragment"
-        android:name="com.example.logInRabbit.LoggedFragmentFragment"
+        android:name="com.example.logInRabbit.ui.login.LoggedFragmentFragment"
         android:label="LoggedFragmentFragment" />
     <fragment
         android:id="@+id/signInFragment"
@@ -43,5 +43,13 @@
         <action
             android:id="@+id/action_signBirthdayFragment_to_snakeMainFragment"
             app:destination="@id/snakeMainFragment" />
+        <action
+            android:id="@+id/action_signBirthdayFragment_to_credentialsFragment"
+            app:destination="@id/credentialsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/credentialsFragment"
+        android:name="com.example.logInRabbit.ui.CredentialsFragment"
+        android:label="fragment_credentials"
+        tools:layout="@layout/fragment_credentials" />
 </navigation>

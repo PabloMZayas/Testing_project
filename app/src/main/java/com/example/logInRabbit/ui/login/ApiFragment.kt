@@ -1,4 +1,4 @@
-package com.example.logInRabbit.ui
+package com.example.logInRabbit.ui.login
 
 import android.graphics.Paint
 import android.os.Bundle
