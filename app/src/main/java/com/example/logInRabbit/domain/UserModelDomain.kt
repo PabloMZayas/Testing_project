@@ -1,7 +1,9 @@
 package com.example.logInRabbit.domain
 
+import java.util.*
+
 data class UserModelDomain (
-    var id: String,
+    var id: String = UUID.randomUUID().toString(),
     var name: String = "",
     var lastName: String = "",
     var email: String = "",

@@ -2,19 +2,35 @@ package com.example.logInRabbit.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.logInRabbit.di.CoroutinesDispatchers
+import com.example.logInRabbit.domain.UserModelDomain
 import com.example.logInRabbit.domain.UserRepository
-import com.example.logInRabbit.ui.utils.InfoState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
-class RegisterViewModel @Inject constructor(userRepository: UserRepository)
-    : ViewModel() {
+class RegisterViewModel @Inject constructor(
+    private val userRepository: UserRepository,
+    private val coroutinesDispatchers: CoroutinesDispatchers
+) : ViewModel() {
 
-    private var _infoState = MutableLiveData<InfoState>()
-    val infoState get() = _infoState
+    private var _infoUser = MutableLiveData<UserModelDomain>()
+    val infoState get() = _infoUser
 
-    private fun validateName (name: String, lastName: String){
-        if (name.length>3 && lastName.length>3) _infoState.value?.isAcceptedName = true
+
+    fun saveUser(name: String, lastName: String) {
+        val newUser = UserModelDomain(
+            name = name,
+            lastName = lastName
+        )
+
+        viewModelScope.launch(coroutinesDispatchers.io) {
+            withContext(coroutinesDispatchers.main) {
+                userRepository.insertUser(newUser)
+            }
+        }
     }
 }

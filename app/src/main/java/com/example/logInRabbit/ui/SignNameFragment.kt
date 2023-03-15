@@ -7,17 +7,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.logInRabbit.R
 import com.example.logInRabbit.databinding.FragmentSignNameBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SignNameFragment : Fragment(){
 
     private var _binding: FragmentSignNameBinding? = null
     private val binding get() = _binding!!
 
-    private val registerViewModel: RegisterViewModel by activityViewModels()
+    private val registerViewModel: RegisterViewModel by viewModels()
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -31,7 +33,7 @@ class SignNameFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initObservers()
+        //initObservers()
 
         binding.tvDoYouAlreadyHaveAnAccount.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
@@ -53,12 +55,14 @@ class SignNameFragment : Fragment(){
                 return@setOnClickListener
             }
 
+            registerViewModel.saveUser(name, lastName)
             findNavController().navigate(R.id.action_signInFragment_to_signBirthdayFragment)
         }
     }
 
     private fun initObservers() {
         registerViewModel.infoState.observe(viewLifecycleOwner) {
+
         }
     }
 
