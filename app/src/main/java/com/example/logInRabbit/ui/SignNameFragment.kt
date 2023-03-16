@@ -33,36 +33,33 @@ class SignNameFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //initObservers()
+        initObservers()
 
         binding.tvDoYouAlreadyHaveAnAccount.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
-        binding.ibBack.setOnClickListener { findNavController().navigate(R.id.action_signInFragment_to_snakeMainFragment) }
+        binding.ibBack.setOnClickListener { findNavController().popBackStack() }
 
-        binding.tvDoYouAlreadyHaveAnAccount.setOnClickListener { findNavController().navigate(R.id.action_signInFragment_to_snakeMainFragment) }
+        binding.tvDoYouAlreadyHaveAnAccount.setOnClickListener { findNavController().popBackStack() }
 
-        binding.btnNext.setOnClickListener {
-            val name = binding.textFieldName.text.toString()
-            val lastName = binding.textFieldLastName.text.toString()
+        binding.btnNext.setOnClickListener { checkName() }
+    }
 
-            if (name.isEmpty()) {
-                Toast.makeText(requireContext(), "Ingresa un nombre válido", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            if (lastName.isEmpty()) {
-                Toast.makeText(requireContext(), "Ingresa un apellido válido", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            registerViewModel.saveUser(name, lastName)
-            findNavController().navigate(R.id.action_signInFragment_to_signBirthdayFragment)
-        }
+    private fun checkName() {
+        val name = binding.textFieldName.text.toString()
+        val lastName = binding.textFieldLastName.text.toString()
+        registerViewModel.validateName(name, lastName)
+        if(registerViewModel.showToast.value == 10) findNavController().navigate(R.id.action_signInFragment_to_signBirthdayFragment)
     }
 
     private fun initObservers() {
-        registerViewModel.infoState.observe(viewLifecycleOwner) {
+        registerViewModel.showToast.observe(viewLifecycleOwner){ showErrorMessage(it) }
+    }
 
+    private fun showErrorMessage(case: Int) {
+        when(case){
+            1 -> Toast.makeText(requireContext(), "Llena los campos solicitados", Toast.LENGTH_SHORT).show()
+            2 -> Toast.makeText(requireContext(), "Ingresa un nombre con al menos 3 caracteres", Toast.LENGTH_SHORT).show()
+            3 -> Toast.makeText(requireContext(), "Ingresa un apellido con al menos 3 caracteres", Toast.LENGTH_SHORT).show()
         }
     }
 

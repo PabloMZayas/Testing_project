@@ -1,4 +1,4 @@
-package com.example.logInRabbit.ui
+package com.example.logInRabbit.ui.utils
 
 import android.app.DatePickerDialog
 import android.app.Dialog

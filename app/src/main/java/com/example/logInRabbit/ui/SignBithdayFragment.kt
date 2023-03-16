@@ -9,11 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.logInRabbit.R
 import com.example.logInRabbit.databinding.FragmentSignBithdayBinding
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
+@AndroidEntryPoint
 class SignBirthdayFragment : Fragment(){
 
     private var _binding: FragmentSignBithdayBinding? = null
@@ -21,6 +24,8 @@ class SignBirthdayFragment : Fragment(){
 
     private lateinit var datePickerDialog: DatePickerDialog
     private var dateValidate = ""
+
+    private val registerViewModel: RegisterViewModel by viewModels()
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -39,17 +44,18 @@ class SignBirthdayFragment : Fragment(){
         binding.btnMonth.setOnClickListener{ datePickerDialog.show() }
         binding.btnYear.setOnClickListener{ datePickerDialog.show() }
         binding.tvDoYouAlreadyHaveAnAccount.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-        binding.ibBack.setOnClickListener { findNavController().navigate(R.id.action_signBirthdayFragment_to_signInFragment2) }
+        binding.ibBack.setOnClickListener { findNavController().popBackStack() }
         binding.tvDoYouAlreadyHaveAnAccount.setOnClickListener { findNavController().navigate(R.id.action_signBirthdayFragment_to_snakeMainFragment) }
-        binding.btnNext.setOnClickListener { findNavController().navigate(R.id.action_signBirthdayFragment_to_credentialsFragment) }
+        binding.btnNext.setOnClickListener {
+            findNavController().navigate(R.id.action_signBirthdayFragment_to_credentialsFragment)
+            registerViewModel.validateBirthDay(dateValidate)
+        }
     }
 
     private fun initDatePicker() {
         val dateSetListener =
             DatePickerDialog.OnDateSetListener { _: DatePicker?, year: Int, monthI: Int, day: Int ->
                 val month = monthI + 1
-                //val date = makeDateString(day, month, year)
-                //binding.metDate.text = date
                 dateValidate = dateValidateString(day, month, year)
             }
 
@@ -58,8 +64,6 @@ class SignBirthdayFragment : Fragment(){
         val month = cal[Calendar.MONTH]
         val day = cal[Calendar.DAY_OF_MONTH]
 
-        Toast.makeText(requireContext(), "$day,$month, $year", Toast.LENGTH_SHORT).show()
-        
         datePickerDialog = DatePickerDialog(requireContext(),R.style.MySpinnerDatePickerStyle, dateSetListener, year, month, day)
         datePickerDialog.setButton(DatePickerDialog.BUTTON_POSITIVE, "accept", datePickerDialog)
         datePickerDialog.setButton(DatePickerDialog.BUTTON_NEGATIVE, "cancel", datePickerDialog)
