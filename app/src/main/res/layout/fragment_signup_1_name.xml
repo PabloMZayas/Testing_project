@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#EDEFEF"
     android:padding="10dp"
-    tools:context=".ui.SignNameFragment">
+    tools:context=".ui.signup.Signup1Name">
 
     <ImageButton
         android:id="@+id/ib_back"

@@ -23,9 +23,9 @@
         android:label="LoggedFragmentFragment" />
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.example.logInRabbit.ui.SignNameFragment"
+        android:name="com.example.logInRabbit.ui.signup.Signup1Name"
         android:label="fragment_sign_in"
-        tools:layout="@layout/fragment_sign_name" >
+        tools:layout="@layout/fragment_signup_1_name" >
         <action
             android:id="@+id/action_signInFragment_to_signBirthdayFragment"
             app:destination="@id/signBirthdayFragment" />
@@ -43,7 +43,19 @@
     </fragment>
     <fragment
         android:id="@+id/credentialsFragment"
-        android:name="com.example.logInRabbit.ui.CredentialsFragment"
+        android:name="com.example.logInRabbit.ui.signup.Signup3EmailAndPassword"
         android:label="fragment_credentials"
-        tools:layout="@layout/fragment_credentials" />
+        tools:layout="@layout/fragment_signup_3_email_and_password" >
+        <action
+            android:id="@+id/action_credentialsFragment_to_dialogSignupSuccessfully"
+            app:destination="@id/dialogSignupSuccessfully" />
+    </fragment>
+    <fragment
+        android:id="@+id/dialogSignupSuccessfully"
+        android:name="com.example.logInRabbit.ui.signup.DialogSignupSuccessfully"
+        android:label="DialogSignupSuccessfully" >
+        <action
+            android:id="@+id/action_dialogSignupSuccessfully_to_snakeMainFragment"
+            app:destination="@id/snakeMainFragment" />
+    </fragment>
 </navigation>

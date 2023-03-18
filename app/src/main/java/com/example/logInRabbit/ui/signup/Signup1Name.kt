@@ -1,4 +1,4 @@
-package com.example.logInRabbit.ui
+package com.example.logInRabbit.ui.signup
 
 import android.graphics.Paint
 import android.os.Bundle
@@ -10,13 +10,13 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.logInRabbit.R
-import com.example.logInRabbit.databinding.FragmentSignNameBinding
+import com.example.logInRabbit.databinding.FragmentSignup1NameBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SignNameFragment : Fragment(){
+class Signup1Name : Fragment(){
 
-    private var _binding: FragmentSignNameBinding? = null
+    private var _binding: FragmentSignup1NameBinding? = null
     private val binding get() = _binding!!
 
     private val registerViewModel: RegisterViewModel by viewModels()
@@ -26,7 +26,7 @@ class SignNameFragment : Fragment(){
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSignNameBinding.inflate(inflater, container, false)
+        _binding = FragmentSignup1NameBinding.inflate(inflater, container, false)
         return binding.root
     }
 

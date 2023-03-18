@@ -2,4 +2,22 @@
     <string name="app_name">logInRabbit</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="kitchen">
+        <item name="Kitchen">Cocina</item>
+        <item name="kitchen_oven_general">Estufa</item>
+        <item name="kitchen_microwave_general">Microondas</item>
+        <item name="kitchen_dining_room_general">Comedor</item>
+        <item name="kitchen_knife_general">Cuchillo</item>
+        <item name="kitchen_spoon_general">Cuchara</item>
+        <item name="kitchen_pot_general">Cazuela</item>
+        <item name="kitchen_chair_general">Silla</item>
+        <item name="kitchen_fridge_general">Nevera</item>
+        <item name="kitchen_glass_general">Vaso</item>
+        <item name="kitchen_cup_general">Taza</item>
+        <item name="kitchen_dish_general">Plato</item>
+        <item name="kitchen_jar_general">Jarra</item>
+        <item name="kitchen_refrigerator_general">Refrigerador</item>
+    </string-array>
+
 </resources>

@@ -8,18 +8,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.logInRabbit.R
-import com.example.logInRabbit.databinding.FragmentSignBithdayBinding
+import com.example.logInRabbit.databinding.FragmentSignup2BirthdayBinding
+import com.example.logInRabbit.ui.signup.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
 @AndroidEntryPoint
 class SignBirthdayFragment : Fragment(){
 
-    private var _binding: FragmentSignBithdayBinding? = null
+    private var _binding: FragmentSignup2BirthdayBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var datePickerDialog: DatePickerDialog
@@ -32,7 +32,7 @@ class SignBirthdayFragment : Fragment(){
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSignBithdayBinding.inflate(inflater, container, false)
+        _binding = FragmentSignup2BirthdayBinding.inflate(inflater, container, false)
         return binding.root
     }
 

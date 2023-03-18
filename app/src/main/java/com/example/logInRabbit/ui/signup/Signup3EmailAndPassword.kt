@@ -1,4 +1,4 @@
-package com.example.logInRabbit.ui
+package com.example.logInRabbit.ui.signup
 
 import android.os.Bundle
 import android.util.Patterns
@@ -9,13 +9,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.example.logInRabbit.databinding.FragmentCredentialsBinding
+import com.example.logInRabbit.R
+import com.example.logInRabbit.databinding.FragmentSignup3EmailAndPasswordBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.regex.Pattern
 
 @AndroidEntryPoint
-class CredentialsFragment : Fragment() {
-    private var _binding: FragmentCredentialsBinding? = null
+class Signup3EmailAndPassword : Fragment() {
+    private var _binding: FragmentSignup3EmailAndPasswordBinding? = null
     private val binding get() = _binding!!
 
     private val registerViewModel: RegisterViewModel by viewModels()
@@ -25,14 +26,17 @@ class CredentialsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentCredentialsBinding.inflate(inflater, container, false)
+        _binding = FragmentSignup3EmailAndPasswordBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.ibBack.setOnClickListener{ findNavController().popBackStack() }
-        binding.btnRegister.setOnClickListener { verifyEmailAndPassword() }
+        binding.btnRegister.setOnClickListener {
+            verifyEmailAndPassword()
+            findNavController().navigate(R.id.action_credentialsFragment_to_dialogSignupSuccessfully)
+        }
     }
 
     private fun verifyEmailAndPassword() {

@@ -1,4 +1,4 @@
-package com.example.logInRabbit.ui
+package com.example.logInRabbit.ui.signup
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
