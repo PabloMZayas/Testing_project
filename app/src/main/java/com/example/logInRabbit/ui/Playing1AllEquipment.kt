@@ -1,19 +1,20 @@
-package com.example.logInRabbit.ui.selectmode
+package com.example.logInRabbit.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.example.logInRabbit.R
-import com.example.logInRabbit.databinding.FragmentSelectModeBinding
+import com.example.logInRabbit.databinding.FragmentPlaying1AllEquipmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SelectModeFragment : Fragment(){
+class Playing1AllEquipment : DialogFragment(){
 
-    private var _binding: FragmentSelectModeBinding? = null
+    private var _binding: FragmentPlaying1AllEquipmentBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -21,7 +22,7 @@ class SelectModeFragment : Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSelectModeBinding.inflate(inflater, container, false)
+        _binding = FragmentPlaying1AllEquipmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -29,7 +30,7 @@ class SelectModeFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnNext.setOnClickListener {
-            findNavController().navigate(R.id.action_selectModeFragment_to_playing1AllEquipment)
+            Toast.makeText(requireContext(), "Check_Selection", Toast.LENGTH_SHORT).show()
         }
     }
 

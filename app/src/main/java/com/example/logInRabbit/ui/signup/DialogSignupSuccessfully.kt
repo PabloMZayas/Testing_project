@@ -29,7 +29,7 @@ class DialogSignupSuccessfully : DialogFragment(){
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnAccept.setOnClickListener {
-            findNavController().navigate(R.id.action_dialogSignupSuccessfully_to_snakeMainFragment)
+            findNavController().navigate(R.id.action_dialogSignupSuccessfully_to_selectModeFragment)
         }
     }
 
